@@ -228,7 +228,8 @@
     try {
       if (!("speechSynthesis" in window)) return;
       speechSynthesis.cancel();
-      var u = new SpeechSynthesisUtterance(name + "だよ！");
+      var READING = { "大吉": "だいきち", "中吉": "ちゅうきち", "小吉": "しょうきち", "吉": "きち", "末吉": "すえきち", "凶": "きょう", "特大の大吉": "とくだいのだいきち" };
+      var u = new SpeechSynthesisUtterance((READING[name] || name) + "だよ！");
       u.lang = "ja-JP";
       u.rate = 1.0;
       u.pitch = 1.4;
